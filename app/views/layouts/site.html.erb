@@ -19,7 +19,9 @@
   </head>
 
   <body>
+    <%= render partial: 'layouts/site_shared/navigation.html.erb' %>
     <%= yield %>
+    <%= render partial: 'layouts/site_shared/footer.html.erb' %>
   </body>
 
 </html>
