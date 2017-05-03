@@ -6,21 +6,34 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-puts 'Cadastrando as categorias..............'
-categories = [
-              "Animais e acessórios",
-              "Esporte",
-              "Para sua casa",
-              "Eletrônico e celulares",
-              "Músicas e hobbies",
-              "Bebês e crianças",
-              "Moda e beleza",
-              "Veículos e barcos",
-              "Imóveis",
-              "Emprego e negócios"
-            ]
+# puts 'Cadastrando as categorias..............'
+# categories = [
+#               "Animais e acessórios",
+#               "Esporte",
+#               "Para sua casa",
+#               "Eletrônico e celulares",
+#               "Músicas e hobbies",
+#               "Bebês e crianças",
+#               "Moda e beleza",
+#               "Veículos e barcos",
+#               "Imóveis",
+#               "Emprego e negócios"
+#             ]
 
-categories.each do |category|
-  Category.find_or_create_by(description: category)
+# categories.each do |category|
+#   Category.find_or_create_by(description: category)
+# end
+# puts 'Categorias cadastradas com sucesso!'
+
+
+puts 'Cadastrando admin----------'
+admins = [
+  {email: 'rodrigo@admin.com.br', password:'123456', password_confirmation: '123456'},
+  {email: 'jose@admin.com.br', password:'123456', password_confirmation: '123456'}
+]
+
+admins.each do |admin|
+  item = Admin.new(admin)
+  item.save
 end
-puts 'Categorias cadastradas com sucesso!'
+puts 'Cadastrado com sucesso!'

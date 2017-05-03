@@ -23,8 +23,16 @@ class Backoffice::AdminsController < BackofficeController
   end
 
   def update
+    password = params[:admin][:password]
+    password_confirmation = params[:admin][:password_confirmation]
+
+    if password.blank? && password_confirmation.blank?
+      params[:admin].delete(:password)
+      params[:admin].delete(:password_confirmation)
+    end
+
     if @admin.update(params_admin)
-      redirect_to edit_backoffice_admin_path, notice: "Dados #{@admin.email} atualizado com sucesso"
+      redirect_to backoffice_admins_path, notice: "Dados #{@admin.email} atualizado com sucesso"
     else
       render :edit
     end
