@@ -27,5 +27,15 @@ puts 'Categorias cadastradas com sucesso!'
 
 
 puts 'Cadastrando admin----------'
-  Admin.create(email: 'rodrigo@admin.com.br', password:'123456', password_confirmation: '123456')
+  Admin.create(name: 'Orfenes',
+               email:'rodrigo@admin.com.br',
+               password:'123456',
+               password_confirmation: '123456')
+
+  10.times do |i|
+    Admin.create(name:Faker::Name.name ,
+                 email: Faker::Internet.email,
+                 password:'123456',
+                 password_confirmation: '123456')
+  end
 puts 'Cadastrado com sucesso!'
