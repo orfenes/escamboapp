@@ -30,12 +30,14 @@ puts 'Cadastrando admin----------'
   Admin.create(name: 'Orfenes',
                email:'rodrigo@admin.com.br',
                password:'123456',
-               password_confirmation: '123456')
+               password_confirmation: '123456',
+               role: 0)
 
   10.times do |i|
     Admin.create(name:Faker::Name.name ,
                  email: Faker::Internet.email,
                  password:'123456',
-                 password_confirmation: '123456')
+                 password_confirmation: '123456',
+                 role: [0, 1].sample)
   end
 puts 'Cadastrado com sucesso!'
