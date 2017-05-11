@@ -19,6 +19,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
+# Help ActiveRecord::Enum feature to work fine with I18n and simple_form.
+gem 'enum_help'
 
 source 'https://rails-assets.org' do
   # bootstrap
