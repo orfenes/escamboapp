@@ -4,8 +4,10 @@
   <div class="panel-heading">
     <span>Listando administradores</span>
 
-    <%= link_to new_backoffice_admin_path, class: "btn btn-success btn-circle pull-right", style: "margin-top: -5px" do %>
-      <i class="fa fa-plus"></i>
+    <% if policy(@admin).new? %>
+      <%= link_to new_backoffice_admin_path, class: "btn btn-success btn-circle pull-right", style: "margin-top: -5px" do %>
+        <i class="fa fa-plus"></i>
+      <% end %>
     <% end %>
 
   </div>

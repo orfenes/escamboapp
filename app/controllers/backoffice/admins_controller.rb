@@ -4,11 +4,13 @@ class Backoffice::AdminsController < BackofficeController
 
   def index
     # @admin = Admin.all
-    @admin = Admin.with_full_access
+    @admin = Admin.all
   end
+
 
   def new
     @admin = Admin.new
+    authorize @admin
   end
 
   def create
