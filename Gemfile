@@ -68,6 +68,9 @@ group :development do
   gem 'rails-erd'
   #A library for generating fake data such as names, addresses, and phone numbers.
   gem 'faker'
+  # gem para debugger;
   gem 'pry-byebug'
+  # Catches mail and serves it through a dream.
+  gem 'mailcatcher'
 end
 
