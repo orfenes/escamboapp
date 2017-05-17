@@ -1,7 +1,12 @@
 $(function(){
+  // hides the modal
   let sendMailModal = $('#sendMailModal');
   sendMailModal.modal('hide');
+
+  // clear camp
   $('#subject-tex').val('');
   $('#message-tex').val('');
-  $.notify('<%= @notfiy_message %>', '<%= @notfiy_flag %>')
+
+  // notify
+  $.notify('<%= @notfiy_message %>', '<%= @notfiy_flag %>');
 });
