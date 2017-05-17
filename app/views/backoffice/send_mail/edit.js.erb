@@ -1,0 +1,12 @@
+$(function(){
+  let sendMailModal = $('#sendMailModal');
+
+  $('#recipient-text').val('<%= @admin.email %>')
+  $('.modal-title').text("<%= I18n.t('labels.send_message_to', name: @admin.name) %>")
+
+  sendMailModal.modal();  
+  
+  sendMailModal.on('shown.bs.modal', function () {
+    $('#subject-text').focus()
+  })
+});
