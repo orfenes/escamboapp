@@ -1,5 +1,5 @@
 class AdminMailer < ApplicationMailer
-  
+
   def update_email(current_admin, admin)
     @current_admin = current_admin
     @admin = admin
@@ -11,7 +11,7 @@ class AdminMailer < ApplicationMailer
     @recipient = recipient
     @subject = subject
     @message = message
-    mail(to: @recipient.email, subject: @subject)
+    mail(to: @recipient, subject: @subject)
   end
 
 end
