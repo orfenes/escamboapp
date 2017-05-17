@@ -3,5 +3,5 @@ $(function(){
   sendMailModal.modal('hide');
   $('#subject-tex').val('');
   $('#message-tex').val('');
-  $.notify('Email eviado com sucesso', 'success')
+  $.notify('<%= @notfiy_message %>', '<%= @notfiy_flag %>')
 });
