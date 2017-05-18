@@ -4,9 +4,9 @@ $(function(){
   $('#recipient-text').val('<%= @admin.email %>')
   $('.modal-title').text("<%= I18n.t('labels.send_message_to', name: @admin.name) %>")
 
-  sendMailModal.modal();  
-  
+  sendMailModal.modal();
+  debugger;
   sendMailModal.on('shown.bs.modal', function () {
-    $('#subject-text').focus()
+    $('#subject-tex').focus()
   })
 });
