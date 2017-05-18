@@ -23,6 +23,10 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'enum_help'
 # Minimal authorization through OO design and pure Ruby classes
 gem "pundit"
+# Integration of RubyMoney - Money with Rails
+gem 'money-rails'
+
+
 
 source 'https://rails-assets.org' do
   # bootstrap
