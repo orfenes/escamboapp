@@ -1,14 +1,21 @@
 namespace :dev do
 
-  desc 'Cria membros fake'
+  desc 'Setup Developement'
+  task setup_dev: :environment do
+    puts 'Execuntando o setup para desenvolvimento----------'
+    puts "Apagando banco de dados #{%x(rake db:drop)}"
+    puts "Criando banco de dados #{%x(rake db:create)}"
+    puts "Cirando estrutura de tabelas banco de dados  #{%x(rake db:migrate)}"
+    puts %x(rake db:seed)
+    puts %x(rake dev:generate_admins)
+    puts %x(rake dev:generate_members)
+    puts %x(rake dev:generate_ads)
+    puts 'Setup completado com sucesso!'
+  end
+
+  desc 'Cria adminstradores fake'
   task generate_admins: :environment do
     puts 'Cadastrando admin----------'
-
-    Admin.create(name: 'Orfenes',
-      email:'rodrigo@admin.com.br',
-      password:'123456',
-      password_confirmation: '123456',
-      role: 0)
 
     10.times do |i|
       Admin.create(name:Faker::Name.name ,
@@ -17,7 +24,20 @@ namespace :dev do
         password_confirmation: '123456',
         role: [0, 1].sample)
     end
-    puts 'Cadastrado com sucesso!'
+    puts 'Administradores cadastrado com sucesso!'
+  end
+
+  desc 'Cria membros fake'
+  task generate_members: :environment do
+    puts 'Cadastrando de membros----------'
+
+    100.times do |i|
+      Member.create(
+        email: Faker::Internet.email,
+        password:'123456',
+        password_confirmation: '123456')
+    end
+    puts 'Membros cadastrado com sucesso!'
   end
 
   desc 'Criar anuncios fake'

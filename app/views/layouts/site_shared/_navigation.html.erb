@@ -9,20 +9,27 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <%= link_to t('app.name'), root_path, class:"navbar-brand"%>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav pull-right">
+      <% if member_signed_in? %>
         <li>
-          <a href="#">About</a>
+          <%= current_member.email %>
         </li>
         <li>
-          <a href="#">Services</a>
+          <%= link_to "Sair", destroy_member_session_path, method: :delete  %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to t('app.labels.login'), new_member_session_path %>
         </li>
         <li>
-          <a href="#">Contact</a>
+          <%= link_to "Cadastra-se", new_member_registration_path %>
         </li>
+
+      <% end %>
       </ul>
     </div>
     <!-- /.navbar-collapse -->
