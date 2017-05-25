@@ -16,7 +16,10 @@
       <ul class="nav navbar-nav pull-right">
       <% if member_signed_in? %>
         <li>
-          <%= current_member.email %>
+          <%= link_to current_member.email, :action => "index" %>
+        </li>
+        <li>
+          <%= link_to "Perfil", site_profile_dashboard_index_path %>
         </li>
         <li>
           <%= link_to "Sair", destroy_member_session_path, method: :delete  %>
