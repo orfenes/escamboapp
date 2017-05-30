@@ -1,5 +1,5 @@
 class Site::Profile::AdsController < Site::ProfileController
   def index
-    @ads = Ad.where(member: current_member.id)
+    @ads = Ad.to_then(current_member.id)
   end
 end
