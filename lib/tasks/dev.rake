@@ -2,8 +2,10 @@ namespace :dev do
 
   desc 'Setup Developement'
   task setup_dev: :environment do
+    images_path = Rails.root.join('public', 'system')
     puts 'Execuntando o setup para desenvolvimento----------'
     puts "Apagando banco de dados #{%x(rake db:drop)}"
+    puts "Apagando imagens de public/system #{%x(rm -rf #{images_path} )}"
     puts "Criando banco de dados #{%x(rake db:create)}"
     puts "Cirando estrutura de tabelas banco de dados  #{%x(rake db:migrate)}"
     puts %x(rake db:seed)
@@ -43,6 +45,17 @@ namespace :dev do
   desc 'Criar anuncios fake'
   task generate_ads: :environment do
     puts 'Cadastrando anuncios----'
+
+    5.times do
+      Ad.create!(
+        title: Faker::Lorem.sentence([2,3,4,5].sample),
+        description: LeroleroGenerator.paragraph(Random.rand(3)),
+        member: Member.first,
+        category: Category.all.sample,
+        price: "#{Random.rand(500)},#{Random.rand(99)}",
+        picture: File.new( Rails.root.join('public', 'images-for-ads', "#{Random.rand(9)}.jpg"), 'r' )
+      )
+    end
 
     100.times do
       Ad.create!(

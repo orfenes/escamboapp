@@ -1,0 +1,23 @@
+<h1>Meus anuncios</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Imagem</th>
+      <th>Titulo</th>
+      <th>Preço</th>
+      <th>Categoria</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @ads.each do |ad| %>
+    <tr>
+      <th scope="row"><%= ad.id %></th>
+      <td><%= image_tag ad.picture(:thumb) %></td>
+      <td><%= ad.title %></td>
+      <td><%= ad.category.description  %></td>
+      <td><%= humanized_money_with_symbol ad.price %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -24,7 +24,7 @@
     <%= render partial: 'layouts/site_shared/navigation.html.erb' %>
 
 
-    <div id="wrapper">
+    <div id="wrapper" class="toggled">
       <!-- Sidebar -->
       <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
@@ -34,25 +34,10 @@
             </a>
           </li>
           <li>
-            <a href="#">Dashboard</a>
+            <%= link_to 'Dashboard', site_profile_dashboard_index_path %>
           </li>
           <li>
-            <a href="#">Shortcuts</a>
-          </li>
-          <li>
-            <a href="#">Overview</a>
-          </li>
-          <li>
-            <a href="#">Events</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Services</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
+            <%= link_to 'Meus anúncios', site_profile_ads_path %>
           </li>
         </ul>
       </div>
