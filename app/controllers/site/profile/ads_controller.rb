@@ -1,10 +1,24 @@
 class Site::Profile::AdsController < Site::ProfileController
 
   before_action :set_ad, only: [:edit, :update]
-  # before_action :params_ad, only: [:update]
 
   def index
     @ads = Ad.to_then(current_member.id)
+  end
+
+  def new
+    @ad = Ad.new
+  end
+
+  def create
+    @ad = Ad.new(params_ad)
+    @ad.member = current_member
+    if @ad.save
+      redirect_to site_profile_ads_path,
+      notice: "Anuncio cadastrado com sucesso"
+    else
+      render :new
+    end
   end
 
   def edit
