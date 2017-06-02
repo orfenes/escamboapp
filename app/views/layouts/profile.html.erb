@@ -14,9 +14,6 @@
     <%= stylesheet_link_tag    'site', media: 'all' %>
     <%= stylesheet_link_tag    'site/profile', media: 'all' %>
 
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag 'site' %>
-    <%= javascript_include_tag 'site/profile' %>
     <%= csrf_meta_tags %>
   </head>
 
@@ -36,7 +33,8 @@
           <li>
             <%= link_to 'Dashboard', site_profile_dashboard_index_path %>
           </li>
-          <li>
+          <li>Pra
+
             <%= link_to 'Meus anúncios', site_profile_ads_path %>
           </li>
            <li>
@@ -60,6 +58,10 @@
 
     </div>
     <!-- /#wrapper -->
+
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'site' %>
+    <%= javascript_include_tag 'site/profile' %>
 
     <% if notice %>
       <script>
