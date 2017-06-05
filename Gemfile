@@ -36,6 +36,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap.growl'
   # BootboxJS
   gem 'rails-assets-bootbox'
+  # animate css
+  gem 'rails-assets-animate.css'
 end
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
