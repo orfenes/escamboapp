@@ -32,8 +32,8 @@ gem 'jquery-ui-rails'
 source 'https://rails-assets.org' do
   # bootstrap
   gem 'rails-assets-bootstrap'
-  #This is a gem for Rails app, based in Notify.js implementation
-  gem 'rails-assets-notifyjs'
+  # notification
+  gem 'rails-assets-bootstrap.growl'
   # BootboxJS
   gem 'rails-assets-bootbox'
 end
