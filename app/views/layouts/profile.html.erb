@@ -63,6 +63,8 @@
     <%= javascript_include_tag 'site' %>
     <%= javascript_include_tag 'site/profile' %>
 
+    <%= yield :javascripts %>
+
     <% if notice %>
       <script>
         $.notify("<%= notice %>", "success");
