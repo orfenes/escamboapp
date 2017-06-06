@@ -14,7 +14,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav pull-right">
-      <% if member_signed_in? %>
+      <% unless member_signed_in? %>
         <li>
           <%= link_to current_member.email, :action => "index" %>
         </li>
