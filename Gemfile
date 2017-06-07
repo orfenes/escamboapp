@@ -28,6 +28,8 @@ gem 'money-rails'
 gem 'paperclip', '~> 5.0.0'
 # jquery-ui
 gem 'jquery-ui-rails'
+# The safe Markdown parser, reloaded.
+gem 'redcarpet'
 
 source 'https://rails-assets.org' do
   # bootstrap
