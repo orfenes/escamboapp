@@ -6,7 +6,7 @@
     <h4>
       <a href="#"> <%= @ad.title %></a>
     </h4>
-    <p> <%= md_to_html @ad.description %> </p>
+    <p> <%= @ad.description.html_safe %> </p>
   </div>
   <div class="ratings">
     <p class="pull-right">3 reviews</p>
