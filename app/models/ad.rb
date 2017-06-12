@@ -18,6 +18,9 @@ class Ad < ActiveRecord::Base
   # retonnando ad cadastrando pelo membro
   scope :to_then, ->  (member){ where(member: member) }
 
+  # retornando categories
+  scope :where_category, ->(id){ where(category: id) }
+
   # paperclip
   has_attached_file :picture, styles: { large:"800x300#", medium: "320x150#", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/

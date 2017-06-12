@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :ads, only: [:index, :edit, :update, :new, :create]
    end
    resources :ad_detail, only: [:show]
+   resources :categories, only: [:show]
   end
 
 
