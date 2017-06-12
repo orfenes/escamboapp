@@ -1,5 +1,9 @@
 class Category < ActiveRecord::Base
 
+  # Gem Friendly Id
+  include FriendlyId
+  friendly_id :description, use: :slugged
+
   # associações
   has_many :ads
 
