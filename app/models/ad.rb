@@ -13,13 +13,20 @@ class Ad < ActiveRecord::Base
   validates :price, numericality: { greater_than: 0 }
 
   # retornando o seis itens
-  scope :descending_order, ->  (quantity = 10){ limit(quantity).order(created_at: :asc) }
+  scope :descending_order, ->  (quantity = 10, page){
+    limit(quantity).order(created_at: :asc).page(page).per(6)
+  }
+  # retornando pesquisa da busca
+  scope :search, -> (term, page){
+    where("lower(title) LIKE ? ", "%#{term.downcase}%").page(page).per(6)
+  }
 
   # retonnando ad cadastrando pelo membro
   scope :to_then, ->  (member){ where(member: member) }
 
   # retornando categories
   scope :by_category, ->(id){ where(category: id) }
+
 
   # paperclip
   has_attached_file :picture, styles: { large:"800x300#", medium: "320x150#", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
