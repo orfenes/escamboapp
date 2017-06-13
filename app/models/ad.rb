@@ -1,5 +1,8 @@
 class Ad < ActiveRecord::Base
 
+  # Constants
+  QTT_PER_PAGE = 6
+
   # Callbacks
   before_save :md_to_html
 
@@ -13,12 +16,13 @@ class Ad < ActiveRecord::Base
   validates :price, numericality: { greater_than: 0 }
 
   # retornando o seis itens
-  scope :descending_order, ->  (quantity = 10, page){
-    limit(quantity).order(created_at: :asc).page(page).per(6)
+  scope :descending_order, ->  (page){
+    order(created_at: :asc).page(page).per(QTT_PER_PAGE)
   }
+
   # retornando pesquisa da busca
   scope :search, -> (term, page){
-    where("lower(title) LIKE ? ", "%#{term.downcase}%").page(page).per(6)
+    where("lower(title) LIKE ? ", "%#{term.downcase}%").page(page).per(QTT_PER_PAGE)
   }
 
   # retonnando ad cadastrando pelo membro
