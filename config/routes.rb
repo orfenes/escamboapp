@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     resources :send_mail, only: [:edit, :create]
     resources :categories, except: [:show, :destroy]
     resources :admins, except: [:show]
+    resources :diagrams, only: [:index] 
     get 'dashboard', to: 'dashboard#index'
+
   end
 
   namespace :site do

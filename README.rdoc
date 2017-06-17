@@ -1,28 +1,17 @@
-== README
+# Projeto loja virtual
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Dependencias do projeto
 
-Things you may want to cover:
+* ImageMagick
 
-* Ruby version
+```
+ sudo apt-get update
+ sudo apt-get install imagemagick
+```
 
-* System dependencies
+* Graphviz - apenas para ambiente de desenvolvimento
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+```
+ sudo apt-get update
+ sudo apt-get install graphviz
+```
