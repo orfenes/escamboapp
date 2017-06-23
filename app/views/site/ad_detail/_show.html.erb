@@ -8,16 +8,15 @@
     </h4>
     <p> <%= @ad.description.html_safe %> </p>
   </div>
-  <div class="ratings">
-    <p class="pull-right">3 reviews</p>
-    <p>
-      <span class="glyphicon glyphicon-star"></span>
-      <span class="glyphicon glyphicon-star"></span>
-      <span class="glyphicon glyphicon-star"></span>
-      <span class="glyphicon glyphicon-star"></span>
-      <span class="glyphicon glyphicon-star-empty"></span>
-    </p>
-  </div>
+</div>
+
+<div class="well well-sm">
+  <p class="pull-right">
+    <%= @ad.comments.count %> comentários
+  </p>
+  <p>
+    <%= rating_for @ad, 'quality' %>
+  </p>
 </div>
 
 <div class="well">

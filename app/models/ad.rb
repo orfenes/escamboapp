@@ -3,6 +3,9 @@ class Ad < ActiveRecord::Base
   # Constants
   QTT_PER_PAGE = 6
 
+  # RatyRate
+  ratyrate_rateable "quality"
+
   # Callbacks
   before_save :md_to_html
 
@@ -30,7 +33,7 @@ class Ad < ActiveRecord::Base
   scope :to_then, ->  (member){ where(member: member) }
 
   # retornando categories
-  scope :by_category, ->(id){ where(category: id) }
+  scope :by_category, ->(id, page){ where(category: id).page(page).per(QTT_PER_PAGE) }
 
 
   # paperclip
