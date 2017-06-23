@@ -10,7 +10,7 @@
         <p> <%= truncate(ad.description_short, length: 100) %> </p>
       </div>
       <div class="ratings" style="padding: 5px;">
-        <%= rating_for ad, 'quality' %>
+        <%= ad.rates('quality').count %> <%= t('labels.reviews') %>
       </div>
     </div>
   </div>
