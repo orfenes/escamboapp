@@ -29,9 +29,16 @@ puts 'Cadastrando o Administrador padrão'
 puts 'Adminstrador padrao cadastrado com sucesso'
 ####################
 puts 'Cadastrando o member padrao'
-   Member.create(
-        email: 'rodrigo@member.com.br',
-        password:'123456',
-        password_confirmation: '123456')
+  member = Member.new(
+      email: 'rodrigo@member.com.br',
+      password:'123456',
+      password_confirmation: '123456')
+
+  member.build_profile_member
+
+  member.profile_member.first_name  = 'rodrigo'
+  member.profile_member.second_name = 'orfenes'
+
+  member.save!
 puts 'Membro padrao cadastrado com sucesso'
 

@@ -35,10 +35,16 @@ namespace :dev do
     puts 'Cadastrando de membros----------'
 
     100.times do |i|
-      Member.create(
+      member = Member.new(
         email: Faker::Internet.email,
         password:'123456',
         password_confirmation: '123456')
+      member.build_profile_member
+
+      member.profile_member.first_name  = Faker::Name.first_name
+      member.profile_member.second_name = Faker::Name.last_name
+
+      member.save!
     end
     puts 'Membros cadastrado com sucesso!'
   end
@@ -85,7 +91,7 @@ namespace :dev do
           body: Faker::Lorem.paragraph([1,2,3].sample),
           member: Member.all.sample,
           ad: ad
-        ) 
+        )
       end
     end
     puts 'Comentarios criados com sucesso ---------'
