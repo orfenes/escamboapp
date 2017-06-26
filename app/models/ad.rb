@@ -35,6 +35,9 @@ class Ad < ActiveRecord::Base
   # retornando categories
   scope :by_category, ->(id, page){ where(category: id).page(page).per(QTT_PER_PAGE) }
 
+  # retornando carousel dinamico ad
+  scope :random_carousel, -> (qt){ limit(qt).order("RANDOM()")}
+
 
   # paperclip
   has_attached_file :picture, styles: { large:"800x300#", medium: "320x150#", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
