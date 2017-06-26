@@ -69,12 +69,6 @@
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-horizontal"}) do |f| %>
 
-          <% unless devise_error_messages!.blank? %>
-            <div id="signupalert" class="alert alert-danger">
-              <p><%= devise_error_messages! %></p>
-            </div>
-          <% end %>
-
 
           <div class="form-group">
             <%= f.label :email, class: "col-md-3 control-label"%>
@@ -125,13 +119,16 @@
           </div>
 
         <% end %>
-
-
-
       </div>
     </div>
-
-
-
-
   </div>
+
+<% flash.each do |key, value| %>
+  <%= javascript_tag "$.notify( { message: '#{value}'}, { type: 'danger', placement: { from: 'top', align: 'center' }});" %>
+<% end %>
+
+<% unless devise_error_messages!.blank? %>
+  <% resource.errors.full_messages.each do |message| %>
+    <%= javascript_tag "$.notify( { message: '#{message}'}, { type: 'danger', placement: { from: 'top', align: 'center' }});" %>
+  <% end %>
+<% end %>
